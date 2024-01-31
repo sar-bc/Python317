@@ -1560,4 +1560,140 @@
 # print("Данные для добавления на GitHub")
 
 
+# s = ['ab_1', 'ac_2', 'bc_1', 'bc_2']
+# # a = [x for x in s if 'a' not in x]
+# # a = ['A' + x[1:] if x[0] == 'a' else 'B' + x[1:] for x in s]
+# a = ['A' + x[1:] if x[0] == 'a' else 'B' + x[1:] for x in s if x[1] == 'c']
+# print(a)
+# # тернальное выражение
+#
 
+# a = {0, 1, 2, 3}
+# b = {4, 3, 2, 1}
+# # c = a.union(b)  # {0, 1, 2, 3, 4}
+# # c = a & b  # {1, 2, 3}
+# # c = a - b  # {0}
+# c = a ^ b  # {0, 4}
+# print(c)
+# # a |= b
+# # a &= b
+# # a -= b
+# a ^= b
+# print(a)
+
+# s1 = {1, 2}
+# s2 = {3}
+# s3 = {4, 5}
+# s4 = {3, 2, 6}
+# s5 = {6}
+# s6 = {7, 8}
+# s7 = {9, 8}
+#
+# # s = s1.union(s2, s3, s4, s5, s6, s7)
+# s = s1 | s2 | s3 | s4 | s5 | s6 | s7
+# print(s)
+# print(len(s))
+# print(min(s))
+# print(max(s))
+
+# s1 = "Hello"
+# s2 = "How are you"
+# s = set(s1) & set(s2)
+# for i in s:
+#     print(i, end=" ")
+# # print()
+
+# s1 = "Python"
+# s2 = "Programming language"
+# s = set(s1) - set(s2)
+# print(s)
+
+
+# drowing = {'Марина', 'Женя', 'Света'}
+# music = {'Костя', 'Женя', 'Илья'}
+# one_hobby = drowing ^ music
+# print(one_hobby)
+# both_hobby = drowing & music
+# print(both_hobby)
+# drowing = drowing - both_hobby
+# print(drowing)
+
+# a = {0, 1, 2, 3, 4}
+# b = {3, 2, 1}
+# print(a < b)
+
+#  frozenset
+# s = frozenset([1, 2, 3, 4, 5, 6])
+# s = frozenset("Hello")
+# print(s)
+#
+#  Словари (dict)
+
+# s = [1, 2, 3]
+# d = {"one": 1, "two": 2, "three": 3}
+# print(s[1])
+# print(d["two"])
+#
+# s1 = ["one", "two", "three"]
+# d1 = {1: "one", 2: "two", 3: "three"}
+# print(s1[1])
+# print(d1[2])
+
+# set() == {}
+# d = {0: "test", "one": 45, (1, 2.3): "Кортеж", True: 1, 35: [2, 3, 6, 7]}
+# print(d)
+# d[(1, 2.3)] = 100
+# print(d)
+#
+# d = {'one': 1, 'two': 2}
+# print(d)
+# print(type(d))
+#
+# d1 = dict(one=1, two=2)
+# print(d1)
+# print(type(d1))
+
+
+# d1 = dict([("one", 1), ("two", 2)])
+# print(d1)
+
+# d = {x: x for x in range(7)}
+# print(d)
+
+# d = {"one": 1, "two": 2, "three": 3}
+# print("four" in d)
+# print(len(d))
+# for i in d:
+#     print(i, "->", d[i])
+# print(d)
+# key = "four"
+# del d[key]
+# print(d)
+# if key in d:
+#     print(d[key])
+# print(d["four"])  # KeyError: 'four'
+# try:
+#     print(d[key])
+# except KeyError:
+#     print("Такого ключа нет")
+
+
+# s = {'x1': 3, 'x2': 7, 'x3': 5, 'x4': -1}
+# res = 1
+# for i in s:
+#     res *= s[i]
+# print(res)
+
+# d = dict()
+# d[1] = input("-> ")
+# d[2] = input("-> ")
+# d[3] = input("-> ")
+# d[4] = input("-> ")
+# d = {x: input("-> ") for x in range(1, 5)}
+# print(d)
+# try:
+#     dislike = int(input("Какой элемент исключить: "))
+#     del d[dislike]
+# except (KeyError, ValueError):
+#     print("Такого элемента не существует")
+# print(d)
