@@ -1882,16 +1882,16 @@
 # print(d2)
 
 
-a = ['one', 1, [2, 3], 'two', 10, 20, 'three', 15, 36, 60, 'four', -20]
-
-d = dict()
-s = None
-print(type(s))
-for i in a:
-    if type(i) == str:  # {'one': [1,2,3], 'two': [10,20], 'three': [], 'four': []}
-        d[i] = []  # d['two'] = []
-        s = i  # s = 'two'
-    else:
-        d[s].append(i)  # d['two'].append(20)
-
-print(d)
+# a = ['one', 1, [2, 3], 'two', 10, 20, 'three', 15, 36, 60, 'four', -20]
+#
+# d = dict()
+# s = None
+# print(type(s))
+# for i in a:
+#     if type(i) == str:  # {'one': [1,2,3], 'two': [10,20], 'three': [], 'four': []}
+#         d[i] = []  # d['two'] = []
+#         s = i  # s = 'two'
+#     else:
+#         d[s].append(i)  # d['two'].append(20)
+#
+# print(d)
