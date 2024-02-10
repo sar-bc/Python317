@@ -1681,7 +1681,7 @@
 
 # d = {"one": 1, "two": 2, "three": 3}
 # print(d)
-# # print("four" in d)
+# print("four" in d)
 # # print(len(d))
 # # for key in d:
 # #     print(key, "->", d[key])
@@ -1743,7 +1743,7 @@
 #
 # for key in goods:
 #     print(key, ") ", goods[key][0], " - ", goods[key][1], " шт. по ", goods[key][2], " руб.", sep="")
-#
+
 # while True:
 #     n = input("№: ")
 #     if n != "0":
@@ -1772,8 +1772,8 @@
 # print(d.values())
 # print(d.keys())
 # print(d.items())
-# # for key, value in d.items():
-# #     print(key, "->", value)
+# for key, value in d.items():
+#     print(key, "->", value)
 # print(list(d))  # ['x1', 'x2', 'x3']
 # print(list(d.values()))  # [3, 7, 5]
 # print(list(d.items()))  # [('x1', 3), ('x2', 7), ('x3', 5)]
@@ -1809,12 +1809,12 @@
 
 # d = {'x1': 3, 'x2': 7, 'x3': 5}
 # print(d)
-# # item = d.setdefault("x1", 10)
-# # print(item)
-# # print(d)
-# # a = {"one": 1, "two": 2, 'x1': 10}
-# # print(a)
-# # a = list(a.items())
+# item = d.setdefault("x4", 10)
+# print(item)
+# print(d)
+# a = {"one": 1, "two": 2, 'x1': 10}
+# print(a)
+# a = list(a.items())
 # a = [('one', 1), ('two', 2), ('x1', 10)]
 # print(a)
 # d.update(a)
@@ -1824,8 +1824,8 @@
 # x = {'a': 1, 'b': 2}
 # y = {'b': 3, 'c': 4}
 # z = x | y
-# # z = x.copy()
-# # z.update(y)
+# z = x.copy()
+# z.update(y)
 # print(z)
 
 # d = dict.fromkeys(['a', 'b', 'c'], 100)
@@ -1837,11 +1837,11 @@
 # d2['salary'] = d.pop("salary")
 # print(d)
 # print(d2)
-
+#
 # d = {'name': 'Kelly', 'age': 25, 'salary': 8000, 'city': 'New York'}
 # d['location'] = d.pop('city')
 # print(d)
-
+#
 # d = {
 #     'first': {
 #         1: {
@@ -1903,11 +1903,11 @@
 
 # one = [1, 2, 3, 4, 5]
 # two = ["one", "two", "three"]
-#
-# # three = [2.5, 4.6, 8.9]
+# #
+# three = [2.5, 4.6, 8.9]
 # d = dict(zip(two, one))
 # print(d)
-#
+# #
 # lst = list(zip(one, two, three))
 # print(lst)
 
@@ -1918,11 +1918,10 @@
 # two = {"name": "Irina", "surname": "Smith", "job": "Manager"}
 # three = {"name": "Irina", "surname": "Smith", "job": "Manager"}
 #
-# for (k1, v1), (k2, v2), (k3,v3) in zip(one.items(), two.items(), three.items()):
+# for (k1, v1), (k2, v2), (k3, v3) in zip(one.items(), two.items(), three.items()):
 #     print(k1, "->", v1)
 #     print(k2, "->", v2)
 #     print(k3, "->", v3)
-
 
 # lst = [(1, 'one'), (2, 'two'), (3, 'three')]
 # a, b = zip(*lst)
@@ -1932,12 +1931,12 @@
 # a = {"one": 1, "two": 2, "three": 5}
 # b = {"three": 3, "four": 4}
 # print({**a, **b})  # {'one': 1, 'two': 2, 'three': 3, 'four': 4}
-#
+
 # for k, v in {**a, **b}.items():
 #     print(k, "->", v)
 
 # data = [5, 7, 9, 4, 1, 3, 5, 8, 6, 4]
-# data = ["red", "green", "blue"]
+# # data = ["red", "green", "blue"]
 # for num, color in enumerate(data, 1):
 #     print(num, ") ", color, sep="")
 # j = 1
@@ -2093,8 +2092,3 @@
 #
 #
 # print(func(3))
-print("test")
-
-
-
-
