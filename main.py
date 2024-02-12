@@ -1681,7 +1681,7 @@
 
 # d = {"one": 1, "two": 2, "three": 3}
 # print(d)
-# print("four" in d)
+# # print("four" in d)
 # # print(len(d))
 # # for key in d:
 # #     print(key, "->", d[key])
@@ -1743,7 +1743,7 @@
 #
 # for key in goods:
 #     print(key, ") ", goods[key][0], " - ", goods[key][1], " шт. по ", goods[key][2], " руб.", sep="")
-
+#
 # while True:
 #     n = input("№: ")
 #     if n != "0":
@@ -1772,8 +1772,8 @@
 # print(d.values())
 # print(d.keys())
 # print(d.items())
-# for key, value in d.items():
-#     print(key, "->", value)
+# # for key, value in d.items():
+# #     print(key, "->", value)
 # print(list(d))  # ['x1', 'x2', 'x3']
 # print(list(d.values()))  # [3, 7, 5]
 # print(list(d.items()))  # [('x1', 3), ('x2', 7), ('x3', 5)]
@@ -1809,12 +1809,12 @@
 
 # d = {'x1': 3, 'x2': 7, 'x3': 5}
 # print(d)
-# item = d.setdefault("x4", 10)
-# print(item)
-# print(d)
-# a = {"one": 1, "two": 2, 'x1': 10}
-# print(a)
-# a = list(a.items())
+# # item = d.setdefault("x1", 10)
+# # print(item)
+# # print(d)
+# # a = {"one": 1, "two": 2, 'x1': 10}
+# # print(a)
+# # a = list(a.items())
 # a = [('one', 1), ('two', 2), ('x1', 10)]
 # print(a)
 # d.update(a)
@@ -1824,8 +1824,8 @@
 # x = {'a': 1, 'b': 2}
 # y = {'b': 3, 'c': 4}
 # z = x | y
-# z = x.copy()
-# z.update(y)
+# # z = x.copy()
+# # z.update(y)
 # print(z)
 
 # d = dict.fromkeys(['a', 'b', 'c'], 100)
@@ -1837,11 +1837,11 @@
 # d2['salary'] = d.pop("salary")
 # print(d)
 # print(d2)
-#
+
 # d = {'name': 'Kelly', 'age': 25, 'salary': 8000, 'city': 'New York'}
 # d['location'] = d.pop('city')
 # print(d)
-#
+
 # d = {
 #     'first': {
 #         1: {
@@ -1897,26 +1897,45 @@
 # print(d)
 
 
-########################################
+# sales = {'John': {'N': 3056, 'S': 8463, 'E': 8441, 'W': 2694},
+#          'Tom': {'N': 4832, 'S': 6786, 'E': 4737, 'W': 3612},
+#          'Anne': {'N': 5239, 'S': 4802, 'E': 5820, 'W': 1859},
+#          'Fiona': {'N': 3904, 'S': 3645, 'E': 8821, 'W': 2451}}
+#
+#
+# for x in sales:
+#     print(x)
+#     for y in sales[x]:
+#         print("\t",  y, ":", sales[x][y])
+#
+# person = input("Имя: ")
+# region = input("Регион: ")
+# print(sales[person][region])
+# new_data = int(input("Новое значение: "))
+# sales[person][region] = new_data
+# print(sales[person])
+
 
 # zip()
 
-# one = [1, 2, 3, 4, 5]
-# two = ["one", "two", "three"]
-# #
+# one = [1, 2, 3]
+# two = ["one", "two", "three", 4, 5]
 # three = [2.5, 4.6, 8.9]
+#
 # d = dict(zip(two, one))
 # print(d)
-# #
-# lst = list(zip(one, two, three))
+#
+# lst = list(zip(one, two))  #, three
+# lst = list(zip(one))
 # print(lst)
 
-# f = {k: v for k, v in zip(one, two)}
+# f = {k: v for k, v in zip(two, one)}
 # print(f)
 
 # one = {"name": "Igor", "surname": "Doe", "job": "Consultant"}
 # two = {"name": "Irina", "surname": "Smith", "job": "Manager"}
 # three = {"name": "Irina", "surname": "Smith", "job": "Manager"}
+#
 #
 # for (k1, v1), (k2, v2), (k3, v3) in zip(one.items(), two.items(), three.items()):
 #     print(k1, "->", v1)
@@ -1928,17 +1947,19 @@
 # print(a)  # (1, 2, 3)
 # print(b)  # ('one', 'two', 'three')
 
-# a = {"one": 1, "two": 2, "three": 5}
-# b = {"three": 3, "four": 4}
-# print({**a, **b})  # {'one': 1, 'two': 2, 'three': 3, 'four': 4}
-
+# a = {"one": 1, 'two': 2, "three": 5}
+# b = {"three": 3, 'four': 4}
+# print({**a, **b})  # {"one": 1, 'two': 2, "three": 3, 'four': 4}
+#
 # for k, v in {**a, **b}.items():
 #     print(k, "->", v)
 
 # data = [5, 7, 9, 4, 1, 3, 5, 8, 6, 4]
-# # data = ["red", "green", "blue"]
+# data = ["red", "green", "blue"]
+#
 # for num, color in enumerate(data, 1):
 #     print(num, ") ", color, sep="")
+
 # j = 1
 # for i in data:
 #     print(j, ") ", i, sep="")
@@ -1956,29 +1977,31 @@
 # print(func(5, 6, 7, "abc"))
 # print(func())
 
-# def summa(*args):
+
+# def summa(*param):
 #     res = 0
-#     for i in args:
+#     for i in param:
 #         res += i
 #     return res
 #
 #
-# print(summa(1, 3, 6, 5, 4, 5, 9, 8, 7, 6))
+# print(summa(1, 8, 9, 6, 5, 4, 7, 3, 5, 1, 4, 2, 6))
+# print(summa(5, 4, 7, 3, 5, 1, 4))
 # print(summa(4, 2, 6))
 
 
-# def to_dict(*args):
-#     # return dict(zip(args, args))
-#     # d = {}
-#     # for i in args:
-#     #     d.update({i: i})
-#     # return d
-#     return {i: i for i in args}
+# def to_dict(*di):
+#     # dictionary = {}
+#     # for i in di:
+#     #     dictionary.update({i: i})
+#     #
+#     # return dictionary
+#     # return dict(zip(di, di))
+#     return {i: i for i in di}
 #
 #
 # print(to_dict(1, 2, 3, 4))
 # print(to_dict("grey", (2, 17), 3.11, -4))
-
 
 # def ch(*args):
 #     average = sum(args) / len(args)
@@ -1992,26 +2015,23 @@
 #
 # print(ch(1, 2, 3, 4, 5, 6, 7, 8, 9))
 # print(ch(3, 6, 1, 9, 5))
-#
 
-#
 # def func(a, *args):
 #     return a, args
 #
 #
+# print(func(5))
 # print(func(5, 9, 8, 7, 6))
 
-#
 # def print_scores(student, *scores):
-#     print("Name: ", student)
+#     print("Name:", student)
 #     for score in scores:
 #         print(score, end=" ")
 #     print()
 #
 #
 # print_scores("Roman", 5, 4, 3, 5, 4, 5, 5, 3, 5)
-# print_scores("Nikita", 5, 3, 5, 3)
-
+# print_scores("Nikita", 5, 5, 3, 5)
 
 # def func(**kwargs):
 #     return kwargs
@@ -2021,7 +2041,6 @@
 # print(func())
 # print(func(name="Python"))
 
-
 # def intro(**kwargs):
 #     for k, v in kwargs.items():
 #         print(k, "is", v)
@@ -2029,39 +2048,37 @@
 #
 #
 # intro(name="Irina", surname="Sharma", age=22)
-# intro(name="Igor", surname="Wood", email="igor@gmail.com", age=22, phone=987654321)
+# intro(name="Igor", surname="Wood", email="igor@gmail.com", age=26, phone=987654321)
 
 
 # def func(a, b, *args, dd=5, cc=7, **kwargs):
 #     return a, b, args, kwargs, dd, cc
 #
 #
-# print(func(1, 2, 3, 4, 5, cc=3, aa=1, bb=2))
+# print(func(1, 2, 3, 4, 5, aa=1, cc=3, bb=2))  #
 
 # def db(**kwargs):
 #     my_dict.update(**kwargs)
 #
 #
 # my_dict = {"one": "first"}
-#
 # db(k1=22, k2=31, k3=11, k4=91)
-# # db(name="Bob", age=31, weight=61, eyes_color="grey")
+# db(name="Bob", age=31, weight=61, eyes_color="grey")
 # print(my_dict)
 
-
-# name = "Tom"
+# name = "Tom"  # глобальная переменная
 # surname = ""
 #
 #
 # def hi():
 #     global name, surname
-#     name = "Sam"
+#     name = "Sam"  # локальная переменная
 #     surname = "Johnson"
 #     print("Hello", name, surname)
 #
 #
 # def bye():
-#     print("Good bye,", name)
+#     print("Good bye", name)
 #
 #
 # print(name)
@@ -2069,8 +2086,6 @@
 # bye()
 # print(name)
 # print(surname)
-
-#
 # i = 5
 #
 #
@@ -2079,16 +2094,280 @@
 #
 #
 # i = 6
-# func()
+# func()  # 5
 
-
-# def func(a):
-#     x = 2
+# x = 10
+#
+#
+# def func(a):  # a = 3
+#     # x = 2
 #
 #     def inner():
+#         # x = 6
 #         print("x:", x)
-#         return a + x
+#         return a + x  # 3 + 10
+#
 #     return inner()
 #
 #
 # print(func(3))
+
+
+# students = {}
+#
+# n = int(input("Кол-во студентов: "))
+# s = 0
+# for i, key in enumerate(range(n), 1):
+#     name = input(str(i) + "-й студент: ")
+#     point = int(input("Балл: "))
+#     students[name] = point
+#     s += point
+#
+# average = s / n
+# print("Средний балл:", average)
+# for key in students:
+#     if students[key] > average:
+#         print(key)
+
+# sum = "Hello"
+#
+# print(sum)
+#
+# lst = [1, 2, 3, 4, 5, 6, 4]
+# print(sum(lst))
+
+# def outer(who):
+#     def inner():
+#         print("Hello,", who)
+#
+#     inner()
+#
+#
+# outer("World!")
+
+
+# def fun1():
+#     a = 6  # 2
+#
+#     def fun2(b):  # b = 4
+#         a = 4  # 5  # a = 6
+#         print(a + b)  # 6  # a + b = 8 (10)
+#
+#     print("a:", a)  # 3
+#     fun2(4)  # 4
+#
+#
+# fun1()  # 1
+
+# x = 25
+# t = 0
+#
+#
+# def fn():
+#     global t
+#     a = 30  # 35
+#
+#     def inner():
+#         nonlocal a
+#         a = 35
+#         # print(a)
+#
+#     inner()
+#     t = a  # 35
+#
+#
+# fn()
+# q = x + t  # 25 + 35
+# print(q)  # 60
+
+# x = 5
+
+
+# def fn1():
+#     x = 25  # 55
+#
+#     def fn2():
+#         x = 33  # 55
+#
+#         def fn3():
+#             nonlocal x
+#             x = 55
+#
+#         fn3()
+#         print("fn2.x =", x)  # 33  55
+#
+#     fn2()
+#     print("fn1.x =", x)  # 25  55
+#
+#
+# fn1()
+
+# def outer(a1, b1, a2, b2):
+#     a = 0  # 1
+#     b = 0  # 7
+#
+#     def inner():
+#         nonlocal a, b
+#         a = a1 + a2
+#         b = b1 + b2
+#         # print("a:", a)
+#         # print("b:", b)
+#
+#     inner()
+#     return [a, b]
+#
+#
+# print(outer(2, 3, -1, 4))  # [1, 7]
+
+
+# Замыкание
+
+# def outer(n):  # 5
+#     def inner(x):  # 10
+#         return n + x
+#
+#     return inner
+#
+#
+# out1 = outer(5)
+# print(out1(10))
+#
+# out2 = outer(6)
+# print(out2(4))
+
+# print(outer(5)(10))
+
+
+# def func(a):
+#     return a + 2
+#
+#
+# var = func(5)
+# print(var)
+
+
+# def func1():
+#     a = 1
+#     b = "line"
+#     c = [1, 2, 3]
+#
+#     def func2():
+#         nonlocal a, b
+#         c.append(4)
+#         a = a + 1
+#         b = b + "_new"
+#         return a, b, c
+#
+#     return func2
+#
+#
+# func = func1()
+# print(func())
+
+
+# def func(city):
+#     count = 0  # 3  # 5
+#
+#     def inner():
+#         nonlocal count
+#         count += 1
+#         print(city, count)
+#
+#     return inner
+#
+#
+# res1 = func("Москва")
+# res1()
+# res1()
+#
+# res2 = func("Сочи")
+# res2()
+# res2()
+# res2()
+# res2()
+# res2()
+#
+# res1()
+# res1()
+# res1()
+# res1()
+
+
+# lambda - функция (выражение)
+
+# def func(x, y):
+#     return x + y
+#
+#
+# print(func(2, 3))
+
+# print((lambda x, y: x + y)(2, 3))
+# print((lambda x, y: x + y)(12, 3))
+
+# variable = lambda x, y: x + y
+#
+# print(variable(2, 3))
+
+# print((lambda x, y: x ** 2 + y ** 2)(2, 5))
+
+# print((lambda a, b, c: a + b + c)(10, 20, 30))
+# print((lambda a, b, c=3: a + b + c)(10, 20))
+# print((lambda a, b=2, c=3: a + b + c)(10))
+# print((lambda a=1, b=2, c=3: a + b + c)())
+
+# print((lambda *args: sum(args))(1, 2, 3, 4, 5, 6))
+# print((lambda *args: args)("a", "b", "c"))
+
+
+# c = (
+#     lambda x: x * 2,
+#     lambda x: x * 3,
+#     lambda x: x * 4,
+# )
+#
+# for t in c:
+#     print(t("abc_"))
+
+# def outer(n):
+#     def inner(x):
+#         return n + x
+#
+#     return inner
+#
+#
+# f = outer(5)
+# print(f(10))
+
+
+# def outer1(n):
+#     return lambda x: n + x
+#
+#
+# f1 = outer1(5)
+# print(f1(10))
+#
+# outer2 = lambda n: lambda x: n + x
+#
+# f2 = outer2(5)
+# print(f2(10))
+
+# print((lambda n: lambda x: n + x)(5)(10))
+
+
+# print((lambda n: lambda x: lambda y: n + x + y)(2)(4)(6))
+# print((lambda n: lambda x: lambda y: n+x+y)(int(input("Введите 1 число: ")))(int(input("Введите 2 число: ")))
+# (int(input("Введите 3 число: "))))
+
+
+def func(i):
+    return i[1]
+
+
+d = {"b": 15, "a": 7, "c": 3}
+print(d)
+lst = list(d.items())
+print(lst)
+lst.sort(key=lambda i: i[1])
+# lst.sort(key=func)
+print(lst)
+print(dict(lst))
