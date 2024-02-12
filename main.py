@@ -2359,15 +2359,17 @@
 # (int(input("Введите 3 число: "))))
 
 
-def func(i):
-    return i[1]
+# def func(i):
+#     return i[1]
+#
+#
+# d = {"b": 15, "a": 7, "c": 3}
+# print(d)
+# lst = list(d.items())
+# print(lst)
+# lst.sort(key=lambda i: i[1])
+# # lst.sort(key=func)
+# print(lst)
+# print(dict(lst))
 
 
-d = {"b": 15, "a": 7, "c": 3}
-print(d)
-lst = list(d.items())
-print(lst)
-lst.sort(key=lambda i: i[1])
-# lst.sort(key=func)
-print(lst)
-print(dict(lst))
