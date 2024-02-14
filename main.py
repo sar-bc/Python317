@@ -2373,22 +2373,73 @@
 # print(dict(lst))
 
 
+# def outer(a, b, c):
+#     def inner(i, j):
+#         return i * j
+#
+#     s = 2 * (inner(a, b) + inner(a, c) + inner(b, c))
+#     return s
+#
+#
+# print(outer(2, 4, 6))
+# print(outer(5, 8, 2))
+# print(outer(1, 6, 8))
+
+# s = 0
+#
+#
+# def outer(a, b, c):
+#     def inner(i, j):
+#         return i * j
+#
+#     global s
+#     s = 2 * (inner(a, b) + inner(a, c) + inner(b, c))
+#     return s
+#
+#
+# print(s)
+# outer(2, 4, 6)
+# print(s)
+# outer(5, 8, 2)
+# print(s)
+# outer(1, 6, 8)
+# print(s)
+
+
+# def outer(a, b, c):  # 2, 4, 6
+#     s = 0  # 44
+#
+#     def inner(i, j):
+#         nonlocal s
+#         s = s + i * j  # s += i * j   # s = 20 + 24 = 44
+#
+#     inner(a, b)  # 2, 4
+#     inner(a, c)  # 2, 6
+#     inner(b, c)  # 4, 6
+#     return 2 * s  # 2 * 44
+#
+#
+# print(outer(2, 4, 6))
+# print(outer(5, 8, 2))
+# print(outer(1, 6, 8))
+
+
 # players = [
 #     {'name': 'Антон', 'last_name': 'Бирюков', 'rating': 9},
 #     {'name': 'Алексей', 'last_name': 'Бодня', 'rating': 10},
 #     {'name': 'Федор', 'last_name': 'Сидоров', 'rating': 4},
 #     {'name': 'Михаил', 'last_name': 'Семенов', 'rating': 6},
 # ]
+#
 # res1 = sorted(players, key=lambda item: item['last_name'])
 # print(res1)
 # res2 = sorted(players, key=lambda item: item['rating'])
 # print(res2)
-# res3 = sorted(players, key=lambda item: item['rating'], reverse=True)
+# res3 = sorted(players, reverse=True, key=lambda item: item['rating'])
 # print(res3)
 
-
 # a = [lambda x, y: x + y, lambda x, y: x - y, lambda x, y: x * y]
-# b = a[2](5, 3)
+# b = a[0](5, 3)
 # print(b)
 
 
@@ -2398,17 +2449,27 @@
 #     3: lambda: print("Среда"),
 #     4: lambda: print("Четверг"),
 # }
+#
 # d[3]()
 
+# print((lambda a, b: a if a > b else b)(5, 13))
 
-# print((lambda a, b: a if a > b else b)(5, 3))
 
-# print((lambda a, b, c: a if (a < b) and (b < c) else b if b < c else c)(2, 6, 5))
+# print((lambda a, b, c: a if (a < b) and ((b < c) or (b > c)) else b if b < c else c)(12, 15, 6))
 
-# lst = [2, 6, 5]
-# lst.sort(key=lambda i:)
-# print((lambda *args: min(args))(2, 5, 6))
 
+# print((lambda a, b, c: a if (a < b) and (a < c) else b if (b < c) and (b < a) else c if (c < a) and (
+#             c < b) else "Ну тут уже всё:)")(22, 35, 16))
+# print((lambda a, b, c: a if (a < b) and (a < c) else b if (b < c) and (b < a) else c)(12, 36, 15))
+#
+# print((lambda a, b, c: a if min(a, b, c) == a else b if min(a, b, c) == b else c if min(a, b,
+
+#  c) == c else "Несколько равных")(
+#     11, 2, 111))
+#
+# print((lambda *args: min(args))(12, 5, 6))
+# print((lambda *args: sorted(args)[0])(2, 5, 6))
+# print((lambda *args: sorted(args)[-1])(2, 5, 6))
 
 # map(func, iterable), filter(func, iterable)
 
@@ -2429,50 +2490,53 @@
 # lst = ['1', '2', '3', '4', '5']
 # print(lst)
 # print(list(map(lambda x: int(x), lst)))
+# print([int(i) for i in lst])
 # print(list(map(int, lst)))
 
 # st = ['a', 'b', 'c', 'd', 'e']
 # num = [1, 2, 3, 4, 5]
-# print(list(map(lambda x, y: (x, y), st, num)))
-#
-# st = [9, 8, 7, 6, 5]
+# print(list(map(lambda x, y: {x: y}, st, num)))
+
+# st = [9, 2, 7, 6, 5]
 # num = [1, 2, 3, 4, 5]
 # print(list(map(lambda x, y: x + y, st, num)))
 
-# t = ('abcd', 'abc', 'cdef', 'def', 'gth')
+# t = ('abcd', 'abc', 'cdefg', 'def', 'gth', '', False)  # 'abcdabcdabcd'
 #
 # # t2 = list(filter(lambda s: len(s) == 3, t))
-# t2 = list(filter(lambda s: s * 3, t))
+# t2 = list(filter(lambda s: s, t))
 # print(t2)
-#
 
 # b = [66, 90, 68, 59, 76, 60, 88, 74, 81, 65]
 # print(list(filter(lambda s: s > 75, b)))
 
-# список от одного до 40 случайно
+# от 1 до 40
 
 # from random import randint
 #
-# lst = [randint(0, 40) for a in (range(10))]
-# print(lst)
-# print(list(filter(lambda a: 10 <= a <= 20, lst)))
+# arr = [randint(1, 40) for i in range(10)]
+# print(arr)
+# # print(list(filter(lambda a: (a >= 10) and a <= 20, arr)))
+# print(list(filter(lambda a: 10 <= a <= 20, arr)))
 
+# Вывести на экран квадраты нечетных чисел от 1 до 10
 # print(list(map(lambda x: x ** 2, filter(lambda x: x % 2, range(1, 10)))))
 # print([x ** 2 for x in range(1, 10) if x % 2])
 
 
-#  Декораторы
+# Декораторы
 
 # def hello():
-#     return 'Hello, I am func "hello"'
+#     return 'Hello, I am func "hello"'  # 3
 #
 #
-# def super_func(func):
-#     print('Hello, I am func "super_func"')
-#     print(func())
+# def super_func(func):  # (def hello(): return 'Hello, I am func "hello"')
+#     print('Hello, I am func "super_func"')  # 2
+#     print(func())  # 4
 #
 #
-# super_func(hello)
+# super_func(hello)  # 1
+
 
 # def hello():
 #     return 'Hello, I am func "hello"'
@@ -2483,12 +2547,11 @@
 # print(id(hello))
 # print(test())
 
-# def my_decoration(func):
+# def my_decorator(func):
 #     def inner():
 #         print('Code before')
 #         func()
 #         print('Code after')
-#
 #     return inner
 #
 #
@@ -2496,22 +2559,31 @@
 #     print('Hello, I am func "func_test"')
 #
 #
-# test = my_decoration(func_test)
+# test = my_decorator(func_test)
 # test()
 
 
-def my_decoration(func):  # декорирующая функция
+def my_decorator(func):  # декорирующая функция
     def inner():
-        print('Code before')
+        print('*' * 40)
         func()
-        print('Code after')
-
+        print('-' * 40)
     return inner
 
 
-@my_decoration  # декоратор
-def func_test():
+@my_decorator  # декоратор
+def func_test():  # декорируемая функция
     print('Hello, I am func "func_test"')
 
 
+@my_decorator
+def hello():
+    print('Hello, I am func "hello"')
+
+
 func_test()
+hello()
+
+
+m = "Hello"
+print(m[::-1])
