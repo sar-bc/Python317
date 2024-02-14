@@ -2373,3 +2373,145 @@
 # print(dict(lst))
 
 
+# players = [
+#     {'name': 'Антон', 'last_name': 'Бирюков', 'rating': 9},
+#     {'name': 'Алексей', 'last_name': 'Бодня', 'rating': 10},
+#     {'name': 'Федор', 'last_name': 'Сидоров', 'rating': 4},
+#     {'name': 'Михаил', 'last_name': 'Семенов', 'rating': 6},
+# ]
+# res1 = sorted(players, key=lambda item: item['last_name'])
+# print(res1)
+# res2 = sorted(players, key=lambda item: item['rating'])
+# print(res2)
+# res3 = sorted(players, key=lambda item: item['rating'], reverse=True)
+# print(res3)
+
+
+# a = [lambda x, y: x + y, lambda x, y: x - y, lambda x, y: x * y]
+# b = a[2](5, 3)
+# print(b)
+
+
+# d = {
+#     1: lambda: print("Понедельник"),
+#     2: lambda: print("Вторник"),
+#     3: lambda: print("Среда"),
+#     4: lambda: print("Четверг"),
+# }
+# d[3]()
+
+
+# print((lambda a, b: a if a > b else b)(5, 3))
+
+# print((lambda a, b, c: a if (a < b) and (b < c) else b if b < c else c)(2, 6, 5))
+
+# lst = [2, 6, 5]
+# lst.sort(key=lambda i:)
+# print((lambda *args: min(args))(2, 5, 6))
+
+
+# map(func, iterable), filter(func, iterable)
+
+# def mult(t):
+#     return t * 2
+#
+#
+# lst = [2, 8, 12, -5, -10]
+#
+# lt = list(map(mult, lst))
+# print(lt)
+#
+# lt1 = list(map(lambda t: t * 2, lst))
+# print(lt1)
+#
+# print(list(map(lambda t: t * 2, [2, 8, 12, -5, -10])))
+
+# lst = ['1', '2', '3', '4', '5']
+# print(lst)
+# print(list(map(lambda x: int(x), lst)))
+# print(list(map(int, lst)))
+
+# st = ['a', 'b', 'c', 'd', 'e']
+# num = [1, 2, 3, 4, 5]
+# print(list(map(lambda x, y: (x, y), st, num)))
+#
+# st = [9, 8, 7, 6, 5]
+# num = [1, 2, 3, 4, 5]
+# print(list(map(lambda x, y: x + y, st, num)))
+
+# t = ('abcd', 'abc', 'cdef', 'def', 'gth')
+#
+# # t2 = list(filter(lambda s: len(s) == 3, t))
+# t2 = list(filter(lambda s: s * 3, t))
+# print(t2)
+#
+
+# b = [66, 90, 68, 59, 76, 60, 88, 74, 81, 65]
+# print(list(filter(lambda s: s > 75, b)))
+
+# список от одного до 40 случайно
+
+# from random import randint
+#
+# lst = [randint(0, 40) for a in (range(10))]
+# print(lst)
+# print(list(filter(lambda a: 10 <= a <= 20, lst)))
+
+# print(list(map(lambda x: x ** 2, filter(lambda x: x % 2, range(1, 10)))))
+# print([x ** 2 for x in range(1, 10) if x % 2])
+
+
+#  Декораторы
+
+# def hello():
+#     return 'Hello, I am func "hello"'
+#
+#
+# def super_func(func):
+#     print('Hello, I am func "super_func"')
+#     print(func())
+#
+#
+# super_func(hello)
+
+# def hello():
+#     return 'Hello, I am func "hello"'
+#
+#
+# test = hello
+# print(id(test))
+# print(id(hello))
+# print(test())
+
+# def my_decoration(func):
+#     def inner():
+#         print('Code before')
+#         func()
+#         print('Code after')
+#
+#     return inner
+#
+#
+# def func_test():
+#     print('Hello, I am func "func_test"')
+#
+#
+# test = my_decoration(func_test)
+# test()
+
+
+def my_decoration(func):  # декорирующая функция
+    def inner():
+        print('Code before')
+        func()
+        print('Code after')
+
+    return inner
+
+
+@my_decoration  # декоратор
+def func_test():
+    print('Hello, I am func "func_test"')
+
+
+func_test()
