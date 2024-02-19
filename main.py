@@ -2562,7 +2562,7 @@
 # test = my_decorator(func_test)
 # test()
 
-#
+
 # def my_decorator(func):  # декорирующая функция
 #     def inner():
 #         print('*' * 40)
@@ -2576,17 +2576,13 @@
 #     print('Hello, I am func "func_test"')
 #
 #
-# # @my_decorator
+# @my_decorator
 # def hello():
 #     print('Hello, I am func "hello"')
 #
 #
 # func_test()
 # hello()
-
-
-# m = "Hello"
-# print(m[::-1])
 
 # def bold(fn):
 #     def wrap():
@@ -2610,7 +2606,7 @@
 #
 # print(hello())
 
-#
+
 # def cnt(fn):
 #     count = 0
 #
@@ -2631,9 +2627,10 @@
 # hello()
 # hello()
 # hello()
+
 # def args_decorator(fn):
 #     def wrap(arg1, arg2):
-#         print("Данные", arg1, arg2)
+#         print("Данные:", arg1, arg2)
 #         fn(arg1, arg2)
 #
 #     return wrap
@@ -2649,8 +2646,8 @@
 
 # def args_decorator(fn):
 #     def wrap(*args, **kwargs):
-#         print("args", args)
-#         print("kwargs", kwargs)
+#         print("args:", args)
+#         print("kwargs:", kwargs)
 #         fn(*args, **kwargs)
 #
 #     return wrap
@@ -2658,15 +2655,15 @@
 #
 # @args_decorator
 # def func(a, b, c, study="Python"):
-#     print(a, b, c, "Изучают", study, end="\n\n")
+#     print(a, b, c, "изучают", study, end="\n\n")
 #
 #
 # @args_decorator
 # def func1(study):
-#     print("Мне нравиться", study)
+#     print("Мне нравится", study)
 #
 #
-# func("Борис", "Елизпвета", "Светлана", study="JavaScrpt")
+# func("Борис", "Елизавета", "Светлана", study="JavaScript")
 # func("Владимир", "Екатерина", "Виктор")
 # func1(study="HTML")
 
@@ -2677,7 +2674,6 @@
 #             fn(x, y)
 #
 #         return wrap
-#
 #     return decor
 #
 #
@@ -2695,17 +2691,19 @@
 # sub(5, 2)
 
 
-# def multiply(arg):
+# def decor_args(arg1):
 #     def decor(fn):
 #         def wrap(x):
-#             return arg * fn(x)
+#             return arg1 * fn(x)  # 3 * 5
+#
 #         return wrap
+#
 #     return decor
 #
 #
-# @multiply(3)
-# def return_num(x):
-#     return x
+# @decor_args(3)
+# def return_num(num):
+#     return num
 #
 #
 # print(return_num(5))
@@ -2719,16 +2717,19 @@
 
 # print(int("100", 2))
 # print(int("100", 8))
+# print(int("100", 10))
 # print(int("100", 16))
 
+
 # print(bin(18))  # 0b10010 - двоичная
-# print(oct(18))  # 0o22 - восмеричная
-# print(hex(18))  # 0x12 шестнацатиричная
+# print(oct(18))  # 0o22 - восьмеричная
+# print(hex(18))  # 0x12 - шестнадцатеричная
 #
 # print(0b10010)
 # print(0o22)
 # print(0x12)
-# print(0b10010 + 0o22)
+# print(0b10010 + 0x12)
+
 
 # q = 'Pyt'
 # w = "hon"
@@ -2746,49 +2747,52 @@
 
 # def change_char_to_str(s, old, new):
 #     s2 = ""
-#
 #     i = 0
+#
 #     while i < len(s):
 #         if s[i] == old:
 #             s2 = s2 + new
 #         else:
 #             s2 = s2 + s[i]
 #         i += 1
+#
 #     return s2
 #
 #
 # str1 = "Я изучаю Nython. Мне нравится Nython. Nython очень интересный язык программирования."
 # str2 = change_char_to_str(str1, "N", "P")
-# print("str1 = ", str1)
-# print("str2 = ", str2)
+# print("str1 =", str1)
+# print("str2 =", str2)
 
 # print("Привет")
 # print(u"Привет")
-# print("С:\\folder\\fil\nse.txt\\")
-# print(r"С:\folder\fil\nse.txt\\"[:-1])
-# print(r"С:\folder\fil\nse.txt" + "\\")
+
+# print("C:\\folder\\fil\nes.txt\\")
+# print(r"C:\folder\files\\"[:-1])
+# print(r"C:\folder\files" + "\\")
 
 # name = "Дмитрий"
 # age = 25
-# print("Меня зовут " + name + ". Мне " + str(age) + "лет.")
+# print("Меня зовут " + name + ". Мне " + str(age) + " лет.")
 # print(f"Меня зовут {name}. Мне {age} лет.")
-# ch = 5.756946
-# print(f"Число: {round(ch, 2)}")
-# print(f"Число: {ch:.3f}")
 
+# ch = 5.26987412
+#
+# print(f"Число: {round(ch, 3)}")
+# print(f"Число: {ch:.3f}")
 
 # x = 10
 # y = 5
-# print(f"{x=}, {y=}")
-# print(f"{x}, {y}")
+# print(f"{x = }, {y = }")
 # print(f"{x} x {y} / 2 = {x * y / 2}")
 
 # num = 74
-# print(f"{{{num}}}")
 #
-# print("C:\\text")
+# print(f"{{{{{num}}}}}")
+#
+# print("C:\\\\text")
 
-# dir_name = 'my_doc'
-# file_name = "data.txt"
-# print(fr"home\{dir_name}\{file_name}")
-# print("home\\" + dir_name + "\\" + file_name)
+dir_name = 'my_doc'
+file_name = "data.txt"
+print(fr"home\{dir_name}\{file_name}")
+print("home\\" + dir_name + "\\" + file_name)
