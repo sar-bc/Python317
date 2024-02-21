@@ -2792,7 +2792,190 @@
 #
 # print("C:\\\\text")
 
-dir_name = 'my_doc'
-file_name = "data.txt"
-print(fr"home\{dir_name}\{file_name}")
-print("home\\" + dir_name + "\\" + file_name)
+# dir_name = 'my_doc'
+# file_name = "data.txt"
+# print(fr"home\{dir_name}\{file_name}")
+# print("home\\" + dir_name + "\\" + file_name)
+
+#
+# s = """
+# Несколько
+# строк
+# """
+# s1 = '''
+# Несоклько
+# строк
+# '''
+# print(s)
+# print(s1)
+#
+# def square(n):
+#     """Принимает число n, возвращает квадрат числа n."""
+#     return n ** 2
+#
+#
+# print(square(5))
+# print(square.__doc__)
+# print(len.__doc__)
+
+# from math import pi
+#
+#
+# def cylinder(r, h):
+#     """
+#     Вычисляет площадь цинлиндра.
+#
+#      Вычисляет площадь цилиндра на основании заданной высоты и радиуса основания
+#
+#     :param r: положительное число, радиус основания цилиндра
+#     :param h: положительное число, высота цилиндра
+#     :return: положительное число, площадь цилиндра
+#     """
+#     return 2 * pi * r * (r + h)
+#
+#
+# print(cylinder(2, 4))
+# print(cylinder.__doc__)
+# print(max.__doc__)
+# print(max.__doc__)
+# print(zip.__doc__)
+# print(map.__doc__)
+# print(dict.__doc__)
+
+# print(ord('a'))
+# print(ord('#'))
+# print(ord('й'))
+
+# while True:
+#     n = input("-> ")
+#     if n != "-1":
+#         print(ord(n))
+#     else:
+#         break
+
+
+# s = "Test string for met"
+# arr = [ord(x) for x in s]
+# print("ASCII коды:", arr)
+# arr = [int(sum(arr) / len(arr))] + arr
+# print("Средне арифметическое:", arr)
+# arr += [ord(x) for x in input("-> ")[:3] if ord(x) not in arr]
+# print(arr)
+# print(arr.count(arr[-1]) - 1)
+# arr.sort(reverse=True)
+# print(arr)
+
+#
+# print(chr(97))
+# print(chr(8364))
+
+
+# a = 122
+# b = 97
+# if a < b:
+#     a, b = b, a
+#
+# for i in range(b, a + 1):
+#     print(chr(i), end=" ")
+
+
+# print("apple" == "Apple")
+# print("apple" > "Apple")
+
+# #  генератор паролей
+# from random import randint
+#
+# shortest = 7
+# longest = 10
+# min_ascii = 33
+# max_ascii = 126
+#
+#
+# def random_password():
+#     res = ""
+#     for i in range(randint(shortest, longest)):
+#         random_char = chr(randint(min_ascii, max_ascii))
+#         res += random_char
+#     return res
+#
+#
+# print("Ваш случайный пароль:", random_password())
+
+# s = "hello, WORLD! I am learning Python."
+# print(s.capitalize())
+# print(s.lower())
+# print(s.upper())
+# print(s.swapcase())
+# print(s.title())
+
+# print(s.count("l"))
+# print(s.count("l", 3, 10))
+
+# print(s.find("Python"))  # первое вхождение подстроки 28 индекс, если такой подстроки нет то возвращет -1
+# print(s.find("l", 4, 20))  #
+# print(s.find("l"))
+# print(s.rfind("l1"))
+#
+# print(s.index("l"))  # ValueError
+# print(s.rindex("l"))
+
+
+# st = input("Введите два слова через пробел: ")
+# first = st[:st.find(" ")]
+# second = st[st.find(" ") + 1:]
+# print(second + " " + first)
+
+
+# s = "hello, WORLD! I am learning Python."
+# print(s.startswith("I am", 14))
+# print(s.index("I am"))
+# print(s.endswith("on."))
+
+# print(int("aa"))
+
+# print('123'.isdigit())   # только числа
+# print("wqqe!".isalpha())  # только буквы
+#
+# print('Abc123'.isalnum())  # только буквы и цифры
+#
+# print('abc'.islower())  # находятся ли буквы в нижнем регистре
+#
+# print('ABC123'.isupper())  # находятся ли буквы в верхнем регистре
+
+# n = input("Введите число: ")
+# if n.isdigit():
+#     n = int(n)
+#     print(n * 2)
+#
+
+
+# print('py'.center(10))  # для графического отображения в консоле
+# print(' py '.center(11, "-"))  # для графического отображения в консоле
+
+
+# print('  py   '.lstrip())
+# print('  py   '.rstrip())
+# print('  py   '.strip())
+
+# print('https://www.python.org'.strip('/:pths'))
+
+# str1 = "Я изучаю Nython. Мне нравится Nython. Nython очень интересный язык программирования."
+# print(str1.replace("Nython", "Python"))  # ищет слово и заменяет на новое
+# print(str1.replace("N", "P"))
+
+# s = "-"
+# seq = ("a", "b", "c")
+# print(s.join(seq))
+#
+# print("..".join(['1', '99']))  # объеденитель строк 1..99
+#
+# print(":".join("Hello"))
+
+
+# print("Строка разделенная пробелами".split())  # ['Строка', 'разделенная', 'пробелами']
+# print('www.python.org.ru'.split(".", 2))
+# print('www.python.org.ru'.rsplit(".", 2))
+
+# a = input("-> ").split()
+# b = list(map(int, a))
+# print(b)
