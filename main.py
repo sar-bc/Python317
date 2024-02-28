@@ -2797,35 +2797,64 @@
 # print(fr"home\{dir_name}\{file_name}")
 # print("home\\" + dir_name + "\\" + file_name)
 
+
+###########################################################################
+# def avg(fn):
+#     def wrap(*arg):
+#         a = ""
+#         for i in arg:
+#             a += str(i) + ", "  # "2, 3, 3, 4, "
+#         print("Среднее арифметическое:", a[:-2], "=", fn(*arg) / len(arg))
 #
+#     return wrap
+#
+#
+# @avg
+# def summa(*args):  # (2, 3, 3, 4)
+#     print("Сумма чисел:", ", ".join(map(str, args)), "=", sum(args))
+#     return sum(args)
+#
+#
+# summa(2, 3, 3, 4)
+###########################################################################
+
 # s = """
 # Несколько
 # строк
 # """
+# # print(s)
+#
 # s1 = '''
-# Несоклько
+# Несколько
 # строк
 # '''
-# print(s)
 # print(s1)
 #
+# "Несколько строк"
+# print(s2)
+
+
 # def square(n):
 #     """Принимает число n, возвращает квадрат числа n."""
+#     print()
 #     return n ** 2
 #
 #
 # print(square(5))
 # print(square.__doc__)
+# # max(5, 5)
+# # len()
 # print(len.__doc__)
+
 
 # from math import pi
 #
 #
 # def cylinder(r, h):
 #     """
-#     Вычисляет площадь цинлиндра.
+#     Вычисляет площадь цилиндра.
 #
-#      Вычисляет площадь цилиндра на основании заданной высоты и радиуса основания
+#     Вычисляет площадь цилиндра на основании заданной высоты и радиуса основания
 #
 #     :param r: положительное число, радиус основания цилиндра
 #     :param h: положительное число, высота цилиндра
@@ -2837,9 +2866,6 @@
 # print(cylinder(2, 4))
 # print(cylinder.__doc__)
 # print(max.__doc__)
-# print(max.__doc__)
-# print(zip.__doc__)
-# print(map.__doc__)
 # print(dict.__doc__)
 
 # print(ord('a'))
@@ -2853,124 +2879,124 @@
 #     else:
 #         break
 
-
-# s = "Test string for met"
+# s = "Test string for me"
 # arr = [ord(x) for x in s]
 # print("ASCII коды:", arr)
 # arr = [int(sum(arr) / len(arr))] + arr
-# print("Средне арифметическое:", arr)
+# print("Среднее арифметическое:", arr)
 # arr += [ord(x) for x in input("-> ")[:3] if ord(x) not in arr]
 # print(arr)
 # print(arr.count(arr[-1]) - 1)
 # arr.sort(reverse=True)
 # print(arr)
 
-#
+
 # print(chr(97))
 # print(chr(8364))
 
-
-# a = 122
-# b = 97
+# a = 97
+# b = 122
+#
 # if a < b:
 #     a, b = b, a
 #
 # for i in range(b, a + 1):
 #     print(chr(i), end=" ")
 
-
 # print("apple" == "Apple")
-# print("apple" > "Apple")
+# print("apple" > "Apple")  # 97 > 65
 
-# #  генератор паролей
+
 # from random import randint
 #
 # shortest = 7
-# longest = 10
+# longest = 16
 # min_ascii = 33
 # max_ascii = 126
 #
 #
 # def random_password():
 #     res = ""
-#     for i in range(randint(shortest, longest)):
-#         random_char = chr(randint(min_ascii, max_ascii))
-#         res += random_char
+#     for i in range(randint(shortest, longest)):  # range(10)
+#         rand_char = chr(randint(min_ascii, max_ascii))
+#         res += rand_char
 #     return res
 #
 #
 # print("Ваш случайный пароль:", random_password())
 
+
 # s = "hello, WORLD! I am learning Python."
-# print(s.capitalize())
-# print(s.lower())
-# print(s.upper())
-# print(s.swapcase())
-# print(s.title())
-
-# print(s.count("l"))
-# print(s.count("l", 3, 10))
-
-# print(s.find("Python"))  # первое вхождение подстроки 28 индекс, если такой подстроки нет то возвращет -1
-# print(s.find("l", 4, 20))  #
-# print(s.find("l"))
-# print(s.rfind("l1"))
+# # print(s.capitalize())  # Hello, world! i am learning python.
+# # print(s.lower())  # hello, world! i am learning python.
+# # print(s.upper())  # HELLO, WORLD! I AM LEARNING PYTHON.
+# # # print(s.swapcase())  # HELLO, world! i AM LEARNING pYTHON.
+# # # print(s.title())  # Hello, World! I Am Learning Python.
+# # print(s)
 #
-# print(s.index("l"))  # ValueError
-# print(s.rindex("l"))
-
-
-# st = input("Введите два слова через пробел: ")
-# first = st[:st.find(" ")]
-# second = st[st.find(" ") + 1:]
-# print(second + " " + first)
-
-
-# s = "hello, WORLD! I am learning Python."
+# # print(s.count("l"))
+# # print(s.count("l", 3))
+# # print(s.count("l", 3, 10))
+#
+# # print(s.find("Python1"))  # возвращает индекс первого вхождения подстроки в строку, если такой подстроки нет
+# # # возвращает "-1"
+# # # print(s.find("l", 4, 20))
+# # print(s.find("l"))
+# # print(s.rfind("l"))
+# #
+# # print(s.index("l"))  # ValueError
+# # print(s.rindex("l"))
+#
+#
+# # st = input("Введите два слова через пробел: ")
+# # first = st[:st.find(" ")]
+# # second = st[st.find(" ") + 1:]
+# # print(second + " " + first)
 # print(s.startswith("I am", 14))
 # print(s.index("I am"))
 # print(s.endswith("on."))
 
-# print(int("aa"))
 
-# print('123'.isdigit())   # только числа
-# print("wqqe!".isalpha())  # только буквы
+# print(int("789"))
+
+# print('123'.isdigit())  # только числа
+# print('qЙwee'.isalpha())  # только буквы
 #
-# print('Abc123'.isalnum())  # только буквы и цифры
+# print('Abc123'.isalnum())  # только буквы или цифры
 #
-# print('abc'.islower())  # находятся ли буквы в нижнем регистре
-#
-# print('ABC123'.isupper())  # находятся ли буквы в верхнем регистре
+# print('aИc0123"№'.islower())  # только нижний регистр
+# print('ASD0123"№'.isupper())  # только верхний регистр
 
 # n = input("Введите число: ")
 # if n.isdigit():
 #     n = int(n)
 #     print(n * 2)
+
+
+# print('py'.center(10))
+# print(' py '.center(11, "-"))
+
+
+# print('    py    '.lstrip())
+# print('    py    '.rstrip())
+# print('    p y    '.strip())
 #
+# print('https://www.pythons.org'.strip('/:pths.org'))
+# print('https://www.pythons.org'.lstrip('/:pths').rstrip('.org'))
 
 
-# print('py'.center(10))  # для графического отображения в консоле
-# print(' py '.center(11, "-"))  # для графического отображения в консоле
-
-
-# print('  py   '.lstrip())
-# print('  py   '.rstrip())
-# print('  py   '.strip())
-
-# print('https://www.python.org'.strip('/:pths'))
-
-# str1 = "Я изучаю Nython. Мне нравится Nython. Nython очень интересный язык программирования."
-# print(str1.replace("Nython", "Python"))  # ищет слово и заменяет на новое
+# str1 = "Я изучаю Nython. Мне нравится Nython. Nython очень интересный язык программирования. New"
+# print(str1.replace("Nython", "Python"))
 # print(str1.replace("N", "P"))
+
 
 # s = "-"
 # seq = ("a", "b", "c")
 # print(s.join(seq))
 #
-# print("..".join(['1', '99']))  # объеденитель строк 1..99
+# print("..".join(['1', '99']))
 #
-# print(":".join("Hello"))
-
+# print(", ".join("Hello"))
 
 # print("Строка разделенная пробелами".split())  # ['Строка', 'разделенная', 'пробелами']
 # print('www.python.org.ru'.split(".", 2))
@@ -2980,6 +3006,10 @@
 # b = list(map(int, a))
 # print(b)
 
+# fio = input("Введите ФИО: ").split()
+# print(fio)
+# print(f"{fio[0]} {fio[1][0]}.{fio[2][0]}.")
+
 # Регулярные выражения
 
 import re
@@ -2988,35 +3018,39 @@ import re
 # reg = "а"
 
 # print(re.findall(reg, s))  # возвращает список содержащий все совпадения
+#
 # print(re.search(reg, s))  # месторасположение первого совпадения с объектом
-# print(re.search(reg, s).span())
-# print(re.search(reg, s).start())
-# print(re.search(reg, s).end())
-# print(re.search(reg, s).group())
-
+# # print(re.search(reg, s).span())
+# # print(re.search(reg, s).start())
+# # print(re.search(reg, s).end())
+# # print(re.search(reg, s).group())
+#
 # print(re.match(reg, s))  # поиск совпадения с шаблоном вначале строки
-
-# print(re.split(reg, s))  # возвращает список, в котором строка разбита по шаблону
-
+#
+# print(re.split(reg, s, 1))  # возвращает список, в котором строка разбита по шаблону
+#
 # print(re.sub(reg, "!", s, 2))  # поиск и замена
 
 # s = "Я ищу совпадение в 2024 году. И я их [найду] в 2 счё-та. 198673 Hello"
 # reg = "[21][0-9][0-9][0-9]"
 # reg = "[А-яЁё]"
 # reg = "[A-Za-z]"
+# reg = r"\."
 # reg = r"[A-Za-z\[\]-]"
-# reg = r"[0-9^]"
-# reg = r"[^А-яЁё]"
+# reg = r"[^0-9]"
+# reg = r"[^А-яЁёA-Za-z0-9]"
 # print(re.findall(reg, s))
-# print(ord('я'))
-# print(ord('ё'))
 
-# st = "Час в 24 формате от 00 до 23. 2021-06-15T21 : 45. Минуты, в диапазоне от 00 до 59. 2021-06-15T01 : 09."
+# print(ord('Я'))
+# print(ord('а'))
+
+
+# st = "Час в 24 формате от 00 до 23. 2021-06-15T19 : 30. Минуты, в диапазоне от 00 до 59. 2021-06-15T01 : 09."
 # pattern = r"[0-2][0-9]\s:\s[0-5][0-9]"
-# # pattern = r"[0-2][0-9]\s:\s[0-5][0-9]"
 # print(re.findall(pattern, st))
 
-# s = "Я ищу совпадение в 2024 году. И я их [найду] в 2 счё-та. 198673 Hel_lo 200000000000000"
+
+# s = "Я ищу совпадение в 2024 году. И я их [найду] в 2 счё-та. 198673 Hel_lo 20000000000000000000000000"
 # reg = r"[20]*"
 # print(re.findall(reg, s))
 
@@ -3028,13 +3062,33 @@ import re
 # d = "Цифры: 7, +17, --42, 0013, 0.3"
 # reg = r'[+-]?[\d.]+'
 # print(re.findall(reg, d))
-#
 
-s = "05-03-1987 # Дата рождения"
+
+# s = "05-03-1987 # Дата рождения"
 # print("Дата рождения:", re.sub(r"\s#.*", "", s))
 # print(re.sub('-', '.', s))
 # print("Дата рождения:", re.sub('-', '.', re.sub(r"\s#.*", "", s)))
 # # print("Дата рождения:", "05.03.1987")
 # # Дата рождения: 05.03.1987
-print("Дата рождения", re.sub("-", ".", re.sub("\\s#.*", "", s)))
+# print("Дата рождения", re.sub("-", ".", re.sub("\\s#.*", "", s)))
 
+# s = "author=Пушкин А.С.; title  = Евгений Онегин; price =200; year= 1831"
+# reg = r'\w+\s*=\s*[^;]+'
+# # reg = r'[^;]+'
+# print(re.findall(reg, s))
+
+# s = "12 сентября 2024 года 568789456"
+# reg = r"\d{2,4}"
+# print(re.findall(reg, s))
+
+
+# s = "Я ищу совпадение в 2024 году. И я их [найду] в 2 счё_та."
+# # reg = r"^\w+\s\w+"
+# reg = r"\w+\.$"
+# print(re.findall(reg, s))
+
+def validate_login(login):
+    return re.findall(r"^[A-Za-z0-9-]{3,16}$", login)
+
+
+print(validate_login("Python-master"))
