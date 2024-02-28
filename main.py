@@ -3014,6 +3014,7 @@
 
 import re
 
+
 # s = "Я ищу совпадение в 2024 году. И я их найду в 2 счёта."
 # reg = "а"
 
@@ -3087,8 +3088,142 @@ import re
 # reg = r"\w+\.$"
 # print(re.findall(reg, s))
 
-def validate_login(login):
-    return re.findall(r"^[A-Za-z0-9-]{3,16}$", login)
+# def validate_login(login):
+#     return re.findall(r"^[A-Za-z0-9-]{3,16}$", login)
+#
+#
+# print(validate_login("Python-master"))
+#
+# print(re.findall(r"\w+", "12 + й"))
+# print(re.findall(r"\w+", "12 + й", flags=re.ASCII))
+
+# text = "Hello world"
+# print(re.findall(r"\w\+", text, re.DEBUG))
+
+# s = "Я ищу совпадение в 2024 году. И я их найду в 2 счёта."
+# reg = "я"
+#
+# print(re.findall(reg, s, re.IGNORECASE))
+# print(re.findall(reg, s, re.I))
+
+# text = """
+# one
+# two
+# """
+#
+# print(re.findall(r"one.\w+", text))
+# print(re.findall(r"one$", text, re.MULTILINE))
+
+# print(re.findall('''
+# [A-Za-z0-9._-]+
+# @
+# [A-Za-z.-]+
+# ''', 'test@mail.ru', re.VERBOSE))
 
 
-print(validate_login("Python-master"))
+# text = """Python,
+# python,
+# PYTHON"""
+#
+# reg = "(?i)^python"
+# print(re.findall(reg, text))
+
+# text = "<body>пример жадного соответствия регулярных выражений</body>"
+# print(re.findall("<.*?>", text))
+
+# s = "12 сентября 2024 года 568789456"
+# reg = r"\d{2,4}?"
+# print(re.findall(reg, s))
+
+# s = "Ольга и Виталий отлично учаться!"
+# reg = "Петр|Ольга|Виталий"
+# print(re.findall(reg, s))
+
+# s = "int = 4, float = 4.0f, double = 8.0"
+# reg = r"\w+\s*=\s*\d[.\w]*"
+# reg = r"(?:int|float)\s*=\s*(\d[.\w]*)"
+# reg = r"(int|float)\s*=\s*(\d[.\w]*)"
+# print(re.findall(reg, s))
+
+# s = "5 + 7*2 -4"
+# reg = r"\s*([+*-])\s*"
+# print(re.split(reg, s))
+
+# s = "01-12-2024"
+# reg = "(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-([0-9][0-9][0-9][0-9])"
+# # print(re.findall(reg, s))
+# # print(re.search(reg, s).group())
+# # m = re.search(reg, s)
+# # print(m[0])
+# # print(m[1])
+# # print(m[2])
+# # print(m[3])
+# print(re.search(reg, s).group(3))
+
+# text = """
+# Самара
+# Москва
+# Тверь
+# Уфа
+# Казань
+# """
+# count = 0
+#
+#
+# def replace_find(m):
+#     global count
+#     count += 1
+#     return f"<option value='{count}'>{m.group(1)}</option>\n"
+#
+#
+# print(re.sub(r"\s*(\w+)", replace_find, text))
+
+# s = "Самолет прилетает 10/23/2024. Будем рады вас видеть после 10/24/2024"
+# reg = r"(\d{2})/(\d{2})/(\d{4})"
+# print(re.sub(reg, r"\2.\1.\3", s))
+
+# s = "yandex.com and yandex.ru"
+# reg = r"([a-z0-9-]{2,}\.[a-z]{2,4})"
+# print(re.sub(reg, r"http://\1", s))
+
+
+# Рекурсия
+
+# def elevator(n):
+#     if n == 0:  # базовый случай
+#         print("Вы в подвале")
+#         return
+#     print("=>", n)
+#     elevator(n - 1)
+#     print(n, end=" ")
+#
+#
+# n1 = int(input("На каком вы этаже: "))
+# elevator(n1)
+
+# def sum_list(lst):
+#     res = 0
+#     for i in lst:
+#         res += i
+#     return res
+
+# def sum_list(lst):
+#     if len(lst) == 1:
+#         print(lst, "=> lst[0]:", lst[0])
+#         return lst[0]
+#     else:
+#         print(lst, "=> lst[0]:", lst[0])
+#         return lst[0] + sum_list(lst[1:])
+#
+#
+# print(sum_list([1, 3, 5, 7, 9]))
+
+def to_str(n, base):
+    convert = "0123456789ABCDEF"
+    if n < base:
+        return convert[n]
+    else:
+        return to_str(n // base, base) + convert[n % base]
+
+
+print(to_str(254, 16))
