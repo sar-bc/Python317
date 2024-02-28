@@ -3093,7 +3093,14 @@ import re
 #
 #
 # print(validate_login("Python-master"))
+
 #
+
+# s = "+7 499 456-45-78, +74994564578, 7 (499) 4564578, 74994564578, +24994564578"
+#
+# reg = r"\+?7\d{10}"
+# print(re.findall(reg, s))
+
 # print(re.findall(r"\w+", "12 + й"))
 # print(re.findall(r"\w+", "12 + й", flags=re.ASCII))
 
@@ -3110,47 +3117,55 @@ import re
 # one
 # two
 # """
-#
+
 # print(re.findall(r"one.\w+", text))
+# print(re.findall(r"one.\w+", text, re.DOTALL))
+# print(re.findall(r"one$", text))
 # print(re.findall(r"one$", text, re.MULTILINE))
 
 # print(re.findall('''
-# [A-Za-z0-9._-]+
-# @
-# [A-Za-z.-]+
+# [A-Za-z0-9._-] +   # part 1
+# @                  # @
+# [A-Za-z.-]+        # part 2
 # ''', 'test@mail.ru', re.VERBOSE))
-
 
 # text = """Python,
 # python,
 # PYTHON"""
 #
-# reg = "(?i)^python"
+# reg = "(?mi)^python"
 # print(re.findall(reg, text))
 
-# text = "<body>пример жадного соответствия регулярных выражений</body>"
+# text = "<body>Пример жадного соответствия регулярных выражений</body>"
 # print(re.findall("<.*?>", text))
+
+# +?, *?, ??
+# {m,n}?, {,n}?, {m,}?
 
 # s = "12 сентября 2024 года 568789456"
 # reg = r"\d{2,4}?"
 # print(re.findall(reg, s))
 
-# s = "Ольга и Виталий отлично учаться!"
+# s = "Ольга и Виталий отлично учатся!"
 # reg = "Петр|Ольга|Виталий"
 # print(re.findall(reg, s))
 
-# s = "int = 4, float = 4.0f, double = 8.0"
+# s = "int = 4, float = 4.0f, double = 8.0, float"
 # reg = r"\w+\s*=\s*\d[.\w]*"
-# reg = r"(?:int|float)\s*=\s*(\d[.\w]*)"
-# reg = r"(int|float)\s*=\s*(\d[.\w]*)"
+# reg = r"int\s*=\s*\d[.\w]*|float\s*=\s*\d[.\w]*"
+# reg = r"(?:int|float)\s*=\s*\d[.\w]*"
+# reg = r"(int|float)\s*=\s*\d[.\w]*"
 # print(re.findall(reg, s))
+# print(re.search(reg, s))
 
-# s = "5 + 7*2 -4"
+# (?: ....) - группирующая скобка не является сохраняющей
+
+# s = "5 + 7*2 - 4"
 # reg = r"\s*([+*-])\s*"
 # print(re.split(reg, s))
 
 # s = "01-12-2024"
-# reg = "(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-([0-9][0-9][0-9][0-9])"
+# reg = "(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-(19[0-9][0-9]|20[0-9][0-9])"
 # # print(re.findall(reg, s))
 # # print(re.search(reg, s).group())
 # # m = re.search(reg, s)
@@ -3158,13 +3173,16 @@ import re
 # # print(m[1])
 # # print(m[2])
 # # print(m[3])
+# print(re.search(reg, s).group())
+# print(re.search(reg, s).group(1))
+# print(re.search(reg, s).group(2))
 # print(re.search(reg, s).group(3))
 
 # text = """
 # Самара
 # Москва
 # Тверь
-# Уфа
+# Цфа
 # Казань
 # """
 # count = 0
@@ -3176,30 +3194,31 @@ import re
 #     return f"<option value='{count}'>{m.group(1)}</option>\n"
 #
 #
-# print(re.sub(r"\s*(\w+)", replace_find, text))
+# print(re.sub(r"\s*(\w+)\s*", replace_find, text))
 
-# s = "Самолет прилетает 10/23/2024. Будем рады вас видеть после 10/24/2024"
+# s = "Самолет прилетает 10/23/2024. Будем рады вас видеть после 10/24/2024."  # 23.10.2024  24.10.2024
 # reg = r"(\d{2})/(\d{2})/(\d{4})"
 # print(re.sub(reg, r"\2.\1.\3", s))
 
 # s = "yandex.com and yandex.ru"
 # reg = r"([a-z0-9-]{2,}\.[a-z]{2,4})"
-# print(re.sub(reg, r"http://\1", s))
+# print(re.sub(reg, r"http://\1", s))  #
 
 
 # Рекурсия
 
-# def elevator(n):
+# def elevator(n):  # 0
 #     if n == 0:  # базовый случай
 #         print("Вы в подвале")
 #         return
-#     print("=>", n)
-#     elevator(n - 1)
+#     print("=>", n)  # 1
+#     elevator(n - 1)  # 5 4 3 2 1
 #     print(n, end=" ")
 #
 #
 # n1 = int(input("На каком вы этаже: "))
 # elevator(n1)
+
 
 # def sum_list(lst):
 #     res = 0
@@ -3207,16 +3226,16 @@ import re
 #         res += i
 #     return res
 
-# def sum_list(lst):
+# def sum_list(lst):  # [9]
 #     if len(lst) == 1:
 #         print(lst, "=> lst[0]:", lst[0])
-#         return lst[0]
+#         return lst[0]  # 9
 #     else:
 #         print(lst, "=> lst[0]:", lst[0])
-#         return lst[0] + sum_list(lst[1:])
+#         return lst[0] + sum_list(lst[1:])  # 1 + 3 + 5 + 7 +
 #
 #
-# print(sum_list([1, 3, 5, 7, 9]))
+# print(sum_list([1, 3, 5, 7, 9]))  # 25
 
 def to_str(n, base):
     convert = "0123456789ABCDEF"
@@ -3226,4 +3245,7 @@ def to_str(n, base):
         return to_str(n // base, base) + convert[n % base]
 
 
-print(to_str(254, 16))
+print(to_str(254, 10))  # to_str(254, 16) => FE
+
+
+
