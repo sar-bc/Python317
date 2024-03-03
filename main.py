@@ -3245,11 +3245,6 @@ def to_str(n, base):
         return to_str(n // base, base) + convert[n % base]
 
 
-print(to_str(254, 10))  # to_str(254, 16) => FE
+print(to_str(4, 2))  # to_str(254, 16) => FE
 
 
-def validate_login(login):
-    return re.findall(r"^[A-Za-z0-9-]{3,16}$", login)
-
-
-print(validate_login("Python-master"))
