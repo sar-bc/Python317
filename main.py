@@ -3237,14 +3237,19 @@ import re
 #
 # print(sum_list([1, 3, 5, 7, 9]))  # 25
 
-def to_str(n, base):
-    convert = "0123456789ABCDEF"
-    if n < base:
-        return convert[n]
-    else:
-        return to_str(n // base, base) + convert[n % base]
+# def to_str(n, base):
+#     convert = "0123456789ABCDEF"
+#     if n < base:
+#         return convert[n]
+#     else:
+#         return to_str(n // base, base) + convert[n % base]
+#
+#
+# print(to_str(4, 2))  # to_str(254, 16) => FE
 
 
-print(to_str(4, 2))  # to_str(254, 16) => FE
+# f = open("test.txt", w)
 
-
+with open("test.txt", 'w+') as f:
+    print(f.write('01234\n56789'))
+    print(f.closed)
