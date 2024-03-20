@@ -4408,46 +4408,46 @@ import re
 #
 #
 
-class Point:
-    def __init__(self, x, y):
-        self.__x = x
-        self.__y = y
-
-    def __str__(self):
-        return f"({self.__x}, {self.__y})"
-
-
-class Prop:
-    def __init__(self, sp: Point, ep: Point, color: str = "red", width: int = 1):
-        self._sp = sp
-        self._ep = ep
-        self._color = color
-        self._width = width
-
-
-class Line(Prop):
-    def draw_line(self):
-        print(f"Рисование линии: {self._sp}, {self._ep}, {self._color}, {self._width}")
-
-    def set_coord(self, sp: Point = None, ep: Point = None):
-        if ep is None:
-            self._sp = sp
-        elif sp is None:
-            self._ep = ep
-        else:
-            self._sp = sp
-            self._ep = ep
-
-
-line = Line(Point(1, 2), Point(10, 20))
-line.draw_line()
-line.set_coord(Point(12, 18), Point(100, 200))
-line.draw_line()
-line.set_coord(Point(-10, -20))
-line.draw_line()
-
-line.set_coord(ep=Point(500, 700))
-line.draw_line()
-
-
+# class Point:
+#     def __init__(self, x, y):
+#         self.__x = x
+#         self.__y = y
+#
+#     def __str__(self):
+#         return f"({self.__x}, {self.__y})"
+#
+#
+# class Prop:
+#     def __init__(self, sp: Point, ep: Point, color: str = "red", width: int = 1):
+#         self._sp = sp
+#         self._ep = ep
+#         self._color = color
+#         self._width = width
+#
+#
+# class Line(Prop):
+#     def draw_line(self):
+#         print(f"Рисование линии: {self._sp}, {self._ep}, {self._color}, {self._width}")
+#
+#     def set_coord(self, sp: Point = None, ep: Point = None):
+#         if ep is None:
+#             self._sp = sp
+#         elif sp is None:
+#             self._ep = ep
+#         else:
+#             self._sp = sp
+#             self._ep = ep
+#
+#
+# line = Line(Point(1, 2), Point(10, 20))
+# line.draw_line()
+# line.set_coord(Point(12, 18), Point(100, 200))
+# line.draw_line()
+# line.set_coord(Point(-10, -20))
+# line.draw_line()
+#
+# line.set_coord(ep=Point(500, 700))
+# line.draw_line()
+#
+#
 
