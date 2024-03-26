@@ -3014,6 +3014,7 @@
 import math
 import re
 
+
 # s = "Я ищу совпадение в 2024 году. И я их найду в 2 счёта."
 # reg = "а"
 
@@ -4480,8 +4481,9 @@ import re
 #
 #
 # class Ellipse(Prop):
-#     def draw(self):
-#         print(f"Рисование эллипса: {self._sp}, {self._ep}, {self._color}, {self._width}")
+#     # def draw(self):
+#     #     print(f"Рисование эллипса: {self._sp}, {self._ep}, {self._color}, {self._width}")
+#     ...
 #
 #
 # figs = list()
@@ -4551,15 +4553,67 @@ import re
 # print(t.__dict__)
 # print(t.calc_area())
 #
-# t1 = SqTable(20)
-# print(t1.__dict__)
-# print(t1.calc_area())
-#
+# # t1 = SqTable(20)
+# # print(t1.__dict__)
+# # print(t1.calc_area())
+# #
 # t2 = RoundTable(radius=20)
 # print(t2.__dict__)
 # print(t2.calc_area())
-
-
+#
+# from abc import ABC, abstractmethod
+#
+#
+# class Currency(ABC):
+#     def __init__(self, value):
+#         self.value = value
+#
+#     @abstractmethod
+#     def convet_to_rub(self):
+#         pass
+#
+#     @abstractmethod
+#     def print_value(self):
+#         print(self.value, end=" ")
+#
+#
+# class Dollar(Currency):
+#     rate_to_rub = 74.16
+#     suffix = "USD"
+#
+#     def convet_to_rub(self):
+#         return self.value * Dollar.rate_to_rub
+#
+#     def print_value(self):
+#         super().print_value()
+#         print(Dollar.suffix, end=" ")
+#
+#     def show(self):
+#         print(f"={self.convet_to_rub():.2f} RUB")
+#
+# class Euro(Currency):
+#     rate_to_rub = 74.16
+#     suffix = "EUR"
+#
+#     def convet_to_rub(self):
+#         return self.value * Euro.rate_to_rub
+#
+#     def print_value(self):
+#         super().print_value()
+#         print(Euro.suffix, end=" ")
+#
+#     def show(self):
+#         print(f"={self.convet_to_rub():.2f} RUB")
+#
+#
+# d = [Dollar(5), Dollar(10), Dollar(50), Dollar(100)]
+# print("*" * 50)
+# for elem in d:
+#     elem.print_value()
+#     print(f"= {elem.convet_to_rub():.2f} RUB")
+#
+#
+# #
 # from abc import ABC, abstractmethod
 #
 #
@@ -4616,7 +4670,7 @@ import re
 # for elem in e:
 #     elem.print_value()
 #     elem.show()
-
+#
 
 # Интерфейсы
 
@@ -4649,6 +4703,36 @@ import re
 
 
 # Вложенные классы
+#
+# class MyOuter:
+#     age = 18
+#
+#     def __init__(self, name):
+#         self.name = name
+#
+#     @staticmethod
+#     def outer_method():
+#         print("outer_method")
+#
+#     def instance_method(self):
+#         print("instance_method")
+#
+#     class MyInner:
+#         def __init__(self, inner_name, obj):
+#             self.inner_name = inner_name
+#             self.obj = obj
+#
+#         def inner_method(self):
+#             print('Вложенный метод', MyOuter.age)
+#             MyOuter.outer_method()
+#             self.obj.instance_method()
+#
+#
+# out = MyOuter('внешний')
+# print(out.name)
+# inner = out.MyInner("внутренний", out)
+# print(inner.inner_name)
+# inner.inner_method()
 
 # class MyOuter:
 #     age = 18
@@ -4679,6 +4763,38 @@ import re
 # inner = out.MyInner('внутренний', out)
 # print(inner.inner_name)
 # inner.inner_method()
+#
+# class DarkGreen:
+#     def __init__(self):
+#         self.name = "Dark Green"
+#
+#     def display(self):
+#         print("Name:", self.name)
+#
+#
+# class Color:
+#     def __init__(self):
+#         self.name = "green"
+#         self.lg = self.LightGreen()
+#         self.dg = DarkGreen()
+#
+#     def show(self):
+#         print("Name:", self.name)
+#
+#     class LightGreen:
+#         def __init__(self):
+#             self.name = "Light Green"
+#
+#         def display(self):
+#             print("Name:", self.name)
+#
+#
+# outer = Color()
+# outer.show()
+# g = outer.lg
+# g.display()
+# g2 = outer.dg
+# g2.display()
 
 # class DarkGreen:
 #     def __init__(self):
@@ -4712,31 +4828,56 @@ import re
 # g2 = outer.dg
 # g2.display()
 # print(g2.name)
-
-class Computer:
-    def __init__(self):
-        self.name = "PC001"
-        # self.os = self.OS()
-        # self.cpu = self.CPU()
-
-    class OS:
-        def system(self):
-            return "Windows 10"
-
-    class CPU:
-        def make(self):
-            return "Intel"
-
-        def model(self):
-            return "Core-i7"
-
-
-comp = Computer()
+#
+# class Computer:
+#     def __init__(self):
+#         self.name = 'PC001'
+#         self.os = self.OS()
+#         self.cpu = self.CPU()
+#
+#     class OS:
+#         def system(self):
+#             return "Windows 10"
+#
+#     class CPU:
+#         def make(self):
+#             return "Intel"
+#
+#         def model(self):
+#             return "Core-i7"
+#
+#
+# comp = Computer()
 # my_os = comp.os
 # my_cpu = comp.cpu
-my_os = Computer().OS()
-my_cpu = Computer().CPU()
-print(comp.name)
-print(my_os.system())
-print(my_cpu.make())
-print(my_cpu.model())
+# print(comp.name)
+# print(my_os.system())
+# print(my_cpu.make())
+# print(my_cpu.model())
+# class Computer:
+#     def __init__(self):
+#         self.name = "PC001"
+#         # self.os = self.OS()
+#         # self.cpu = self.CPU()
+#
+#     class OS:
+#         def system(self):
+#             return "Windows 10"
+#
+#     class CPU:
+#         def make(self):
+#             return "Intel"
+#
+#         def model(self):
+#             return "Core-i7"
+#
+#
+# comp = Computer()
+# # my_os = comp.os
+# # my_cpu = comp.cpu
+# my_os = Computer().OS()
+# my_cpu = Computer().CPU()
+# print(comp.name)
+# print(my_os.system())
+# print(my_cpu.make())
+# print(my_cpu.model())
